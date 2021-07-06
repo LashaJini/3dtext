@@ -1,0 +1,29 @@
+{
+  "name": "3dtext",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "109149 <109149qwe@gmail.com> (http://109149.rocks/)",
+  "license": "MIT",
+  "scripts": {
+    "build:prod": "webpack build --mode=production",
+    "server:dev": "webpack serve --mode=development --config webpack.config.js --host 0.0.0.0"
+  },
+  "dependencies": {
+    "dat.gui": "0.7.7",
+    "gsap": "3.7.0",
+    "three": "0.130.1"
+  },
+  "devDependencies": {
+    "clean-webpack-plugin": "4.0.0-alpha.0",
+    "css-loader": "5.2.6",
+    "file-loader": "6.2.0",
+    "html-loader": "2.1.2",
+    "html-webpack-plugin": "5.3.2",
+    "pug": "3.0.2",
+    "pug-loader": "2.4.0",
+    "style-loader": "3.0.0",
+    "webpack": "5.42.1",
+    "webpack-cli": "4.7.2",
+    "webpack-dev-server": "3.11.2"
+  }
+}
