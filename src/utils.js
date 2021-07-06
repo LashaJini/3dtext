@@ -1,5 +1,6 @@
 import * as THREE from "three";
 import gsap from "gsap";
+import * as font from "../public/fonts/helvetiker_regular.typeface.json";
 
 export function resizeEventListener({ size, camera, renderer }) {
   window.addEventListener("resize", function (event) {
@@ -87,24 +88,22 @@ export function addCamera(scene, size, fov = 45) {
  */
 export function addText(scene, material, text = "109149") {
   const fontLoader = new THREE.FontLoader();
-  fontLoader.load("/fonts/helvetiker_regular.typeface.json", (font) => {
-    const textGeometry = new THREE.TextGeometry(text, {
-      font,
-      size: 1,
-      height: 0.01,
-      curveSegments: 5,
-      bevelEnabled: true,
-      bevelThickness: 0.1,
-      bevelSize: 0.05,
-      bevelOffset: 0,
-      bevelSegments: 5,
-    });
-
-    textGeometry.center();
-
-    const textMesh = new THREE.Mesh(textGeometry, material);
-    scene.add(textMesh);
+  const textGeometry = new THREE.TextGeometry(text, {
+    font: new THREE.Font(font),
+    size: 1,
+    height: 0.01,
+    curveSegments: 5,
+    bevelEnabled: true,
+    bevelThickness: 0.1,
+    bevelSize: 0.05,
+    bevelOffset: 0,
+    bevelSegments: 5,
   });
+
+  textGeometry.center();
+
+  const textMesh = new THREE.Mesh(textGeometry, material);
+  scene.add(textMesh);
 }
 
 function isNumber(n) {
