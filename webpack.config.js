@@ -1,6 +1,7 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
+const CopyPlugin = require("copy-webpack-plugin");
 
 module.exports = (env, argv) => {
   const PORT = 3000;
@@ -38,6 +39,14 @@ module.exports = (env, argv) => {
     },
     plugins: [
       new CleanWebpackPlugin(),
+      new CopyPlugin({
+        patterns: [
+          { from: "public", to: "" },
+        ],
+        options: {
+          concurrency: 100,
+        },
+      }),
       new HtmlWebpackPlugin({
         template: "./views/pug/index.pug",
         inject: true,
